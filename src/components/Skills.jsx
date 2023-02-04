@@ -35,10 +35,9 @@ const Skills = () => {
               <div className="skill-bx">
                 <h2>Skills</h2>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-                  nihil cum laborum provident illo voluptatem soluta qui amet
-                  earum ipsa vero explicabo ad, ratione porro aspernatur
-                  dignissimos, eveniet eos corporis?
+                  Quickly understands requirements for new systems and creates
+                  robust code. Familiar with testing, debugging, and correcting
+                  problems found in existing software systems.
                 </p>
                 <Carousel
                   responsive={responsive}
@@ -52,7 +51,7 @@ const Skills = () => {
 
                   <div className="item">
                     <img src={skill2} alt="Iamge" />
-                    <h5>Mobile Development</h5>
+                    <h5>Brand Marketing</h5>
                   </div>
 
                   <div className="item">
@@ -62,7 +61,7 @@ const Skills = () => {
 
                   <div className="item">
                     <img src={skill1} alt="Iamge" />
-                    <h5>Brand Marketing</h5>
+                    <h5>Mobile Development</h5>
                   </div>
                 </Carousel>
               </div>

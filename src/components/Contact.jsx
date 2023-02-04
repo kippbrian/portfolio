@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Container, Col, Row } from "react-bootstrap";
+import contactImg from '../assets/img/contact-img.svg';
 
 export const Contact = () => {
   const initialFormDetails = {
@@ -12,12 +14,33 @@ export const Contact = () => {
   const [buttonText, setButtonText] = useState("Send");
   const [status, setStatus] = useState();
 
+
   const onFormUpdate = (category, value) => {
     setFormDetails({
       ...formDetails,
+      [category]:value
     });
   };
-  const handleSubmit = () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setButtonText('Sending Mail...');
+    let response = await fetch("http://localhost:5000/contact", {
+      method:"POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(formDetails),
+    });
+    setButtonText("Send");
+    let result = response.json();
+    setFormDetails(initialFormDetails);
+    if(result.code === 200) {
+      setStatus({success: true, message:'Message sent successfully'});
+    }else{
+      setStatus({success: false, message:'Message sending please try again later'});
+    }
+    
+
 
   };
 
@@ -27,7 +50,7 @@ export const Contact = () => {
         <Container>
           <Row className="align-items-center">
             <Col md={6}>
-              <img src={""} alt="contact-Us" />
+              <img src={contactImg} alt="contact-Me" />
             </Col>
             <Col md={6}>
               <h2>connect with me</h2>
